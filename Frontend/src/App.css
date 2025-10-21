@@ -1,0 +1,18 @@
+ * {
+   box-sizing: border-box;
+ }
+
+ :root {
+   --primary-color: rgb(255, 20, 147);
+   --bg-color: rgb(255, 242, 251);
+   --text-color: #000;
+   --shadow-color: rgba(0, 0, 0, 0.1);
+   --border-color: rgba(0, 0, 0, 0.1);
+ }
+
+ :root.dark-mode {
+   --bg-color: #1a1a1a;
+   --text-color: #ffffff;
+   --shadow-color: rgba(255, 255, 255, 0.1);
+   --border-color: rgba(255, 255, 255, 0.2);
+ }
