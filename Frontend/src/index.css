@@ -1,7 +1,11 @@
 /* Base Styles - Apply to all screen sizes */
 
 /* =========Header Styles========== */
-
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 
 .header-div {
     width: 100%;
@@ -263,7 +267,17 @@
 .logout-btn {
     color: #ff4444 !important;
     font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    background-color: #111;
+    padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    transition: 0.2s ease;
 }
+.logout-btn:hover{
+    background-color: #333;
+}
+
 
 .hamburger {
     display: none;
@@ -480,7 +494,7 @@
     fill: #ff4f4f;
 }
 
-
+/* Cart Sidebar */
 
 .cart-sidebar {
     position: fixed;
@@ -1307,6 +1321,10 @@ TOUCH DEVICE OPTIMIZATIONS
 
 /* Footer bottom */
 .footer-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     margin-top: 40px;
     border-top: 1px solid #333;
     padding-top: 20px;
@@ -1533,11 +1551,12 @@ TOUCH DEVICE OPTIMIZATIONS
 .quick-view-modal {
     position: fixed;
     inset: 0;
-    background: rgba(255, 182, 193, 0.35);
+    background: rgba(0, 0, 0, 0.726);
     backdrop-filter: blur(6px);
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
     z-index: 99;
 }
 
@@ -1545,7 +1564,7 @@ TOUCH DEVICE OPTIMIZATIONS
     background: #fff;
     border-radius: 12px;
     padding: 25px;
-    width: 350px;
+    /* width: 350px; */
     text-align: center;
     box-shadow: 0 8px 25px rgba(255, 182, 193, 0.4);
     position: relative;
@@ -1553,7 +1572,7 @@ TOUCH DEVICE OPTIMIZATIONS
 }
 
 .modal-content img {
-    width: 100%;
+    width: auto;
     height: 220px;
     object-fit: cover;
     border-radius: 8px;
@@ -1562,11 +1581,13 @@ TOUCH DEVICE OPTIMIZATIONS
 .modal-content h2 {
     font-size: 1.2rem;
     margin-top: 15px;
+    overflow: hidden;
     color: #333;
 }
 
 .modal-content p {
     font-size: 0.9rem;
+    overflow: hidden;
     color: #555;
     margin: 10px 0;
 }

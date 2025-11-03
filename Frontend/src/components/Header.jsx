@@ -1,6 +1,7 @@
+import { Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-function Header({ cartItems = [], wishlistItems = [], onAddToCart, onRemoveFromCart }) {
+function Header({ cartItems = [], wishlistItems = [], onAddToCart, onRemoveFromCart, onCheckout }) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [isCartOpen, setIsCartOpen] = useState(false);
@@ -15,6 +16,17 @@ function Header({ cartItems = [], wishlistItems = [], onAddToCart, onRemoveFromC
 
     const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
     const wishlistCount = wishlistItems.length;
+
+    //logout
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        // ✅ Clear any saved login data
+        localStorage.removeItem('user');
+        alert('Logged out successfully');
+        navigate('/login');
+    };
+
 
     // Add to cart function
     const addToCart = (product) => {
@@ -83,13 +95,8 @@ function Header({ cartItems = [], wishlistItems = [], onAddToCart, onRemoveFromC
     }, []);
 
     // Apply dark mode
-    useEffect(() => {
-        if (isDarkMode) {
-            document.documentElement.classList.add('dark-mode');
-        } else {
-            document.documentElement.classList.remove('dark-mode');
-        }
-    }, [isDarkMode]);
+
+
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
     const closeMenu = () => setIsMenuOpen(false);
@@ -119,9 +126,11 @@ function Header({ cartItems = [], wishlistItems = [], onAddToCart, onRemoveFromC
             <div className={`header-div ${isScrolled ? 'scrolled' : ''}`}>
                 <header className="header">
                     {/* Logo */}
-                    <div className="logo-container">
+                    <div className="logo-container" style={{
+                        // fontSize: '100px',
+                    }}>
                         <a href="#home">
-                            <img className="logo" src="src/assets/images/logo/swiftcart.svg" alt="SwiftCart Logo" />
+                            <img className="logo" src="src/assets/images/logo/swiftcart.svg" alt="SwiftCart Logo" style={{}} />
                         </a>
                     </div>
 
@@ -176,18 +185,6 @@ function Header({ cartItems = [], wishlistItems = [], onAddToCart, onRemoveFromC
                     {/* Icons Section */}
                     <div className="icons">
                         {/* Dark Mode Toggle */}
-                        <button className="ico theme-toggle" onClick={toggleDarkMode} aria-label="Toggle theme" title="Toggle Dark Mode">
-                            {isDarkMode ? (
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                    <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708" />
-                                </svg>
-                            ) : (
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                    <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278" />
-                                </svg>
-                            )}
-                        </button>
-
                         {/* Language Selector */}
                         <div className="language-selector">
                             <button className="ico" onClick={toggleLanguage} aria-label="Select language" title="Language">
@@ -265,7 +262,8 @@ function Header({ cartItems = [], wishlistItems = [], onAddToCart, onRemoveFromC
                                     <a href="#wishlist">Wishlist</a>
                                     <a href="#settings">Settings</a>
                                     <hr />
-                                    <a href="#logout" className="logout-btn">Logout</a>
+
+                                    <p className="logout-btn" onClick={handleLogout}>Logout</p>
                                 </div>
                             )}
                         </div>
@@ -378,10 +376,21 @@ function Header({ cartItems = [], wishlistItems = [], onAddToCart, onRemoveFromC
                                     ${cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0).toFixed(2)}
                                 </strong>
                             </div>
-                            <button className="checkout-btn" disabled={cartItems.length === 0}>
+                            <button
+                                className="checkout-btn"
+                                onClick={() => {
+                                    onCheckout && onCheckout();
+                                    setIsCartOpen(false);
+                                }}
+                                disabled={cartItems.length === 0}
+                            >
                                 Proceed to Checkout
                             </button>
-                            <button className="view-cart-btn" disabled={cartItems.length === 0}>
+                            <button
+                                className="view-cart-btn"
+                                disabled={cartItems.length === 0}
+                                onClick={toggleCart}
+                            >
                                 View Cart
                             </button>
                         </div>

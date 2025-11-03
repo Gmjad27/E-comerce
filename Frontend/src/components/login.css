@@ -1,0 +1,82 @@
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.con {
+    padding: 20px;
+    gap: 80px;
+    background-color: rgb(245, 241, 244);
+    width: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    padding: 50px 0px 50px 0px;
+    box-shadow: 0px 0px 20px rgb(177, 177, 177);
+}
+
+.img-sec {
+    width: 45%;
+    height: 500px;
+    border-radius: 20px;
+
+
+}
+
+.image {
+    background-image: url('https://i.pinimg.com/736x/46/f4/78/46f4787db9555cac9e752cf377bb0a51.jpg');
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    border-radius: 30px;
+}
+
+.loginSec {
+    width: 40%;
+}
+
+.loginSec>h3,
+h1,
+p {
+    text-align: center;
+    /* margin-bottom: 200px; */
+}
+
+.loginSec h3 {
+    letter-spacing: 2px;
+}
+
+
+.btnLog,
+input {
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    width: 100%;
+
+}
+
+.btnLog {
+    background-color: rgb(145, 229, 229);
+    padding: 10px;
+    cursor: pointer;
+
+}
+
+.fPass {
+    text-align: end;
+    padding-top: 5px;
+}
+
+.loginSec input {
+    padding: 10px;
+
+}
+
+input::placeholder {
+    color: rgba(0, 0, 0, 0.274);
+}

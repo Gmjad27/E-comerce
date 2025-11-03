@@ -1,101 +1,78 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { login } from '../store/authSlice';
-import { FaEnvelope, FaLock, FaGoogle, FaFacebook } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
-const Login = () => {
-    const dispatch = useDispatch();
+import './login.css'
+
+function Login() {
     const navigate = useNavigate();
-    const [isLogin, setIsLogin] = useState(true);
-    const [formData, setFormData] = useState({
-        email: '',
-        password: '',
-        name: ''
-    });
+    const [uname, setUname] = useState('');
+    const [pass, setPass] = useState('');
 
-    const handleSubmit = async (e) => {
+    // ✅ If already logged in, redirect immediately
+    useEffect(() => {
+        if (localStorage.getItem('user')) {
+            navigate('/', { replace: true });
+        }
+    }, [navigate]);
+
+    const handleLogin = (e) => {
         e.preventDefault();
-        try {
-            // Add your API call here
-            const response = await loginUser(formData);
-            dispatch(login(response.data));
-            navigate('/');
-        } catch (error) {
-            console.error('Login failed:', error);
+
+        if (uname === 'admin' && pass === 'admin') {
+            alert('Login Successful');
+            localStorage.setItem('user', uname);
+            navigate('/', { replace: true }); // ✅ cannot go back now
+        } else {
+            alert('Invalid Credentials');
         }
     };
 
     return (
-        <div className="auth-container">
-            <div className="auth-card">
-                <h2>{isLogin ? 'Login' : 'Sign Up'}</h2>
+        <div className='container'>
+            <div className="con">
+                <div className="img-sec">
+                    <div className="image">
 
-                <form onSubmit={handleSubmit}>
-                    {!isLogin && (
-                        <div className="form-group">
-                            <FaEnvelope className="input-icon" />
-                            <input
-                                type="text"
-                                placeholder="Full Name"
-                                value={formData.name}
-                                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                            />
-                        </div>
-                    )}
-
-                    <div className="form-group">
-                        <FaEnvelope className="input-icon" />
-                        <input
-                            type="email"
-                            placeholder="Email Address"
-                            value={formData.email}
-                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        />
-                    </div>
-
-                    <div className="form-group">
-                        <FaLock className="input-icon" />
-                        <input
-                            type="password"
-                            placeholder="Password"
-                            value={formData.password}
-                            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                        />
-                    </div>
-
-                    {isLogin && (
-                        <div className="forgot-password">
-                            <a href="#">Forgot Password?</a>
-                        </div>
-                    )}
-
-                    <button type="submit" className="auth-button">
-                        {isLogin ? 'Login' : 'Sign Up'}
-                    </button>
-                </form>
-
-                <div className="social-login">
-                    <p>Or continue with</p>
-                    <div className="social-buttons">
-                        <button className="google-btn">
-                            <FaGoogle /> Google
-                        </button>
-                        <button className="facebook-btn">
-                            <FaFacebook /> Facebook
-                        </button>
                     </div>
                 </div>
 
-                <p className="switch-auth">
-                    {isLogin ? "Don't have an account? " : "Already have an account? "}
-                    <button onClick={() => setIsLogin(!isLogin)}>
-                        {isLogin ? 'Sign Up' : 'Login'}
-                    </button>
-                </p>
+                <div className="loginSec">
+
+                    <h3><i class="bi bi-cart4"></i> Swift Cart</h3><br /><br />
+                    <h1>Welcome Back</h1>
+                    <p>Please login to your Account</p><br /><br />
+
+                    <form onSubmit={handleLogin}>
+                        <input
+                            type="text"
+                            placeholder="Username"
+                            value={uname}
+                            onChange={(e) => setUname(e.target.value)}
+                            required
+                        />
+                        <br /><br />
+                        <input
+                            type="password"
+                            placeholder="Password"
+                            value={pass}
+                            onChange={(e) => setPass(e.target.value)}
+                            required
+                        />
+                        <p className='fPass'>Forget Password!</p>
+                        <br /><br /><br /><br />
+                        <button type="submit" className='btnLog'>Login</button>
+                    </form>
+                    <br /><br /><br />
+                    <p>
+                        Don't have an account? <Link to="/">Register</Link>
+                    </p>
+
+
+
+                </div>
             </div>
         </div>
     );
-};
+}
 
 export default Login;
