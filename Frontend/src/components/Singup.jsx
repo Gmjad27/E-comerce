@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import './login.css'
 
-function Login() {
+function Singup() {
     const navigate = useNavigate();
     const [uname, setUname] = useState('');
     const [pass, setPass] = useState('');
@@ -52,19 +52,35 @@ function Login() {
                         />
                         <br /><br />
                         <input
+                            type="text"
+                            placeholder="Username"
+                            value={uname}
+                            onChange={(e) => setUname(e.target.value)}
+                            required
+                        />
+                        <br /><br />
+                        <input
+                            type="text"
+                            placeholder="Username"
+                            value={uname}
+                            onChange={(e) => setUname(e.target.value)}
+                            required
+                        />
+                        <br /><br />
+                        <input
                             type="password"
                             placeholder="Password"
                             value={pass}
                             onChange={(e) => setPass(e.target.value)}
                             required
                         />
-                        <p className='fPass'>Forget Password!</p>
+                        {/* <p className='fPass'>Forget Password!</p> */}
                         <br /><br /><br /><br />
                         <button type="submit" className='btnLog'>Login</button>
                     </form>
                     <br /><br /><br />
                     <p>
-                        Don't have an account? <Link to="/">Singup</Link>
+                        Already have an account? <Link to="/login">Login</Link>
                     </p>
                 </div>
             </div>
@@ -72,4 +88,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default Singup;

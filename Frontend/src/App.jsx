@@ -4,6 +4,7 @@ import Header from './components/Header.jsx';
 import Login from './components/Login.jsx';
 // import Home from './components/Home.jsx';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Singup from './components/Singup.jsx';
 
 // ✅ Define ProtectedRoute
 function ProtectedRoute({ children }) {
@@ -16,7 +17,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
-
+        <Route path="/singup" element={<Singup />} />
         <Route
           path="/"
           element={
