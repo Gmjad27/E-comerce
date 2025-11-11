@@ -1,8 +1,11 @@
 .container {
+    /* background-color: rgb(131, 221, 57); */
+    background-image: linear-gradient(to top left, rgb(0, 128, 79),pink);
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .con {
@@ -10,6 +13,7 @@
     gap: 80px;
     background-color: rgb(245, 241, 244);
     width: 900px;
+    height: 550px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,9 +66,17 @@ input {
 
 .btnLog {
     background-color: rgb(145, 229, 229);
+    color: rgb(0, 0, 0);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
     padding: 10px;
     cursor: pointer;
-
+    transition: 0.3s ease;
+}
+.btnLog:hover{
+    background-color: rgba(117, 202, 202, 0.788);
 }
 
 .fPass {
@@ -79,4 +91,11 @@ input {
 
 input::placeholder {
     color: rgba(0, 0, 0, 0.274);
+}
+
+
+
+.link{
+    text-decoration: none;
+    color: brown;
 }

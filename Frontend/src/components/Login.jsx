@@ -38,9 +38,9 @@ function Login() {
 
                 <div className="loginSec">
 
-                    <h3><i class="bi bi-cart4"></i> Swift Cart</h3><br /><br />
+                    <h3><i class="bi bi-cart4"></i> Swift Cart</h3><br />
                     <h1>Welcome Back</h1>
-                    <p>Please login to your Account</p><br /><br />
+                    <p>Please login to your Account</p><br /><br /><br /><br /><br /><br />
 
                     <form onSubmit={handleLogin}>
                         <input
@@ -58,13 +58,13 @@ function Login() {
                             onChange={(e) => setPass(e.target.value)}
                             required
                         />
-                        <p className='fPass'>Forget Password!</p>
+                        <p className='fPass'><Link className='link'>Forget Password!</Link></p>
                         <br /><br /><br /><br />
                         <button type="submit" className='btnLog'>Login</button>
                     </form>
                     <br /><br /><br />
                     <p>
-                        Don't have an account? <Link to="/">Singup</Link>
+                        Don't have an account? <Link to="/singup" className='link'>Singup</Link>
                     </p>
                 </div>
             </div>

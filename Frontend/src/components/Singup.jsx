@@ -38,7 +38,7 @@ function Singup() {
 
                 <div className="loginSec">
 
-                    <h3><i class="bi bi-cart4"></i> Swift Cart</h3><br /><br />
+                    <h3><i class="bi bi-cart4"></i> Swift Cart</h3><br />
                     <h1>Welcome Back</h1>
                     <p>Please login to your Account</p><br /><br />
 
@@ -53,15 +53,7 @@ function Singup() {
                         <br /><br />
                         <input
                             type="text"
-                            placeholder="Username"
-                            value={uname}
-                            onChange={(e) => setUname(e.target.value)}
-                            required
-                        />
-                        <br /><br />
-                        <input
-                            type="text"
-                            placeholder="Username"
+                            placeholder="E-mail"
                             value={uname}
                             onChange={(e) => setUname(e.target.value)}
                             required
@@ -70,13 +62,21 @@ function Singup() {
                         <input
                             type="password"
                             placeholder="Password"
+                            value={uname}
+                            onChange={(e) => setUname(e.target.value)}
+                            required
+                        />
+                        <br /><br />
+                        <input
+                            type="password"
+                            placeholder="Co-Password"
                             value={pass}
                             onChange={(e) => setPass(e.target.value)}
                             required
                         />
                         {/* <p className='fPass'>Forget Password!</p> */}
                         <br /><br /><br /><br />
-                        <button type="submit" className='btnLog'>Login</button>
+                        <button type="submit" className='btnLog'>SingUp</button>
                     </form>
                     <br /><br /><br />
                     <p>

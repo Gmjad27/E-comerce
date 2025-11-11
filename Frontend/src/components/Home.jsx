@@ -4,11 +4,6 @@ import Banner from './Banner.jsx'
 import Product from './Product.jsx'
 import Footer from './Footer.jsx'
 import Payment from './Payment.jsx'
-import './src/styles/payment.css'
-// import img from 'assets\images\logo\ChatGPT Image Oct 10, 2025, 09_23_52 AM.png'
-
-
-// const [activeComponent, setActiveComponent] = useState('products');
 
 const sampleProducts = [
   {
@@ -238,11 +233,10 @@ function Home() {
           );
         })}
       </div>
-      {/* )} */}
-      {/* Payment Modal */}
+      
       {showPayment && (
         <div className="payment-modal">
-          <div className="payment-overlay" onClick={handlePaymentCancel}></div>
+          {/* <div className="payment-overlay" onClick={handlePaymentCancel}></div> */}
           <div className="payment-content">
             <button className="close-payment" onClick={handlePaymentCancel}>×</button>
             <Payment

@@ -2,11 +2,10 @@ import { useState } from 'react';
 import './App.css';
 import Header from './components/Header.jsx';
 import Login from './components/Login.jsx';
-// import Home from './components/Home.jsx';
+import Home from './components/Home.jsx';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Singup from './components/Singup.jsx';
 
-// ✅ Define ProtectedRoute
 function ProtectedRoute({ children }) {
   const isLoggedIn = localStorage.getItem('user'); // check login status
   return isLoggedIn ? children : <Navigate to="/login" />;
@@ -24,7 +23,7 @@ function App() {
             <ProtectedRoute>
               <>
                 <Header />
-                {/* <Home /> */}
+                <Home />
               </>
             </ProtectedRoute>
           }
