@@ -1,6 +1,6 @@
-.container {
+.containe {
     /* background-color: rgb(131, 221, 57); */
-    background-image: linear-gradient(to top left, rgb(0, 128, 79),pink);
+    background-image: linear-gradient(to top left, rgb(0, 128, 79), pink);
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -75,7 +75,8 @@ input {
     cursor: pointer;
     transition: 0.3s ease;
 }
-.btnLog:hover{
+
+.btnLog:hover {
     background-color: rgba(117, 202, 202, 0.788);
 }
 
@@ -95,7 +96,18 @@ input::placeholder {
 
 
 
-.link{
+.link {
     text-decoration: none;
     color: brown;
+}
+
+
+
+.alerrMassage {
+    position: absolute;
+    z-index: 1000;
+    /* display: none; */
+    /* right: -560px; */
+    transition: 0.2s ease-in;
+
 }

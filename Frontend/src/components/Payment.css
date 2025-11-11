@@ -1,4 +1,4 @@
-.payment-container {
+/* .payment-container {
     max-width: 600px;
     margin: 2rem auto;
     padding: 2rem;
@@ -7,6 +7,15 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
     max-height: 90vh;
+} */
+
+
+.payCon{
+    position: absolute;
+    background-color: #495057;
+    width: 90px;
+    height: 90px;
+
 }
 
 .payment-amount {

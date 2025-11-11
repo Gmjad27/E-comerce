@@ -28,7 +28,7 @@ function Singup() {
     };
 
     return (
-        <div className='container'>
+        <div className='containe'>
             <div className="con">
                 <div className="img-sec">
                     <div className="image">
@@ -36,51 +36,55 @@ function Singup() {
                     </div>
                 </div>
 
-                <div className="loginSec">
+                <div className="loginSec mt-3">
 
-                    <h3><i class="bi bi-cart4"></i> Swift Cart</h3><br />
+                    <h3><i class="bi bi-cart4"></i> Swift Cart</h3>
                     <h1>Welcome Back</h1>
-                    <p>Please login to your Account</p><br /><br />
+                    <p>Please login to your Account</p><br />
 
                     <form onSubmit={handleLogin}>
                         <input
                             type="text"
                             placeholder="Username"
+                            className='mb-2'
                             value={uname}
                             onChange={(e) => setUname(e.target.value)}
                             required
                         />
-                        <br /><br />
+                        <br />
                         <input
                             type="text"
                             placeholder="E-mail"
+                            className='mb-2'
                             value={uname}
                             onChange={(e) => setUname(e.target.value)}
                             required
                         />
-                        <br /><br />
+                        <br />
                         <input
                             type="password"
                             placeholder="Password"
+                            className='mb-2'
                             value={uname}
                             onChange={(e) => setUname(e.target.value)}
                             required
                         />
-                        <br /><br />
+                        <br />
                         <input
                             type="password"
                             placeholder="Co-Password"
+                            className='mb-2'
                             value={pass}
                             onChange={(e) => setPass(e.target.value)}
                             required
                         />
-                        {/* <p className='fPass'>Forget Password!</p> */}
-                        <br /><br /><br /><br />
+                    
+                        <br /><br />
                         <button type="submit" className='btnLog'>SingUp</button>
                     </form>
-                    <br /><br /><br />
+                    <br />
                     <p>
-                        Already have an account? <Link to="/login">Login</Link>
+                        Already have an account? <Link to="/login" className='link'>Login</Link>
                     </p>
                 </div>
             </div>

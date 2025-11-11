@@ -374,8 +374,8 @@ const Payment = ({ total, onSuccess, onCancel }) => {
 
       </div>
 
-// export default Payment;
-      {/* 0/> */}
+
+    
       {errors.phone && <span className="error-message">{errors.phone}</span>}
 
 
@@ -450,11 +450,11 @@ const Payment = ({ total, onSuccess, onCancel }) => {
         </div>
       )};
 
-      type = "text"
+      < input type = "text"
       placeholder = "John Doe"
       value = {contactInfo.name}
       onChange = {(e) => setContactInfo({ ...contactInfo, name: e.target.value })}
-      className = {errors.name ? 'error' : ''}
+      className = {errors.name ? 'error' : ''} ></input>
       {errors.name && <span className="error-message">{errors.name}</span>}
 
       <div className="form-group">
