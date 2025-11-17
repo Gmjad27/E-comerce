@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, replace, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 function Header({ cartItems = [], wishlistItems = [], onAddToCart, onRemoveFromCart, onCheckout }) {
@@ -22,9 +22,10 @@ function Header({ cartItems = [], wishlistItems = [], onAddToCart, onRemoveFromC
 
     const handleLogout = () => {
         // ✅ Clear any saved login data
+        localStorage.removeItem('token');
         localStorage.removeItem('user');
         alert('Logged out successfully');
-        navigate('/login');
+        navigate('/login', { replace: true });
     };
 
 

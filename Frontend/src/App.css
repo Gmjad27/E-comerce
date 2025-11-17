@@ -45,9 +45,10 @@
 
 .payment-content {
     position: relative;
-    width: 90%;
-    max-width: 600px;
-    max-height: 90vh;
+    width: 80%;
+    /* max-width: 600px; */
+    bottom: 0;
+    max-height: 80vh;
     overflow-y: auto;
     background: white;
     border-radius: 12px;
@@ -56,19 +57,23 @@
 }
 
 .close-payment {
+    background-color: #ff4757;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    color: white;
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: none;
+    top: 5rem;
+    left: 5rem;
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: #666;
+   
     z-index: 1002;
 }
 
 .close-payment:hover {
-    color: #ff4757;
+    color: #6e6263;
 }
 
 /* Order Status Styles */

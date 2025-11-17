@@ -1337,10 +1337,10 @@ TOUCH DEVICE OPTIMIZATIONS
     margin-bottom: 10px;
 }
 
-.payment-methods {
+/* .payment-methods {
     height: 28px;
     opacity: 0.9;
-}
+} */
 
 /* Responsive Design */
 @media (max-width: 768px) {

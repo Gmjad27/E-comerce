@@ -375,7 +375,7 @@ const Payment = ({ total, onSuccess, onCancel }) => {
       </div>
 
 
-    
+{/*     
       {errors.phone && <span className="error-message">{errors.phone}</span>}
 
 
@@ -431,10 +431,10 @@ const Payment = ({ total, onSuccess, onCancel }) => {
           />
           {errors.zipCode && <span className="error-message">{errors.zipCode}</span>}
         </div>
-      </div>
+      </div> */}
 
 
-      {paymentMethod !== 'card' && (
+      {/* {paymentMethod !== 'card' && (
         <div className="alternate-payment">
           <p>You will be redirected to {paymentMethod} to complete your payment.</p>
           <button
@@ -448,9 +448,9 @@ const Payment = ({ total, onSuccess, onCancel }) => {
               }`}
           </button>
         </div>
-      )};
+      )}; */}
 
-      < input type = "text"
+      {/* < input type = "text"
       placeholder = "John Doe"
       value = {contactInfo.name}
       onChange = {(e) => setContactInfo({ ...contactInfo, name: e.target.value })}
@@ -467,9 +467,9 @@ const Payment = ({ total, onSuccess, onCancel }) => {
           className={errors.address ? 'error' : ''}
         />
         {errors.address && <span className="error-message">{errors.address}</span>}
-      </div>
+      </div> */}
 
-      <div className="form-row">
+      {/* <div className="form-row">
         <div className="form-group">
           <label>City</label>
           <input
@@ -497,10 +497,10 @@ const Payment = ({ total, onSuccess, onCancel }) => {
           />
           {errors.zipCode && <span className="error-message">{errors.zipCode}</span>}
         </div>
-      </div>
+      </div> */}
 
 
-      {paymentMethod !== 'card' && (
+      {/* {paymentMethod !== 'card' && (
         <div className="alternate-payment">
           <p>You will be redirected to {paymentMethod} to complete your payment.</p>
           <button
@@ -515,7 +515,7 @@ const Payment = ({ total, onSuccess, onCancel }) => {
           </button>
         </div>
       )
-      }
+      } */}
     </>
   );
 };

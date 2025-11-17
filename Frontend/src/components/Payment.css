@@ -1,13 +1,6 @@
-/* .payment-container {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    overflow-y: auto;
-    max-height: 90vh;
-} */
+.payment-container {
+    padding: 20px;
+}
 
 
 .payCon{
@@ -47,17 +40,18 @@
 }
 
 .payment-method {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex: 1;
-    min-width: 120px;
-    padding: 1rem;
+    /* width: 110px; */
+    font-size: 16px;
+    padding: 0px;
     border: 2px solid #e9ecef;
     border-radius: 8px;
     background: none;
     cursor: pointer;
     transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     gap: 0.5rem;
     font-weight: 600;
     color: #495057;

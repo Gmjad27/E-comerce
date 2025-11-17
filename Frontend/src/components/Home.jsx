@@ -237,8 +237,8 @@ function Home() {
       {showPayment && (
         <div className="payment-modal">
           {/* <div className="payment-overlay" onClick={handlePaymentCancel}></div> */}
+            <button className="close-payment" onClick={handlePaymentCancel}>X</button>
           <div className="payment-content">
-            <button className="close-payment" onClick={handlePaymentCancel}>×</button>
             <Payment
               total={cartTotal}
               onSuccess={handlePaymentSuccess}
